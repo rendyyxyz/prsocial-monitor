@@ -31,7 +31,7 @@ margin-right:6px;animation:p 1.6s infinite}
 <body><div class="wrap">
 <h1>PR.SOCIAL · Bot Monitor</h1>
 <div class="sub"><span class="live"></span>live · refresh tiap 3 detik ·
-data: <b id="upd">23 Nov 2026 07:41:00</b></div>
+data: <b id="upd">23 Nov 2026 07:43:24</b></div>
 
 <span class="pill idle" id="pill">IDLE (menunggu tugas)</span>
 
@@ -99,17 +99,38 @@ Jeda: IG 70s, TikTok/X 30s. Like/komentar didukung (upload screenshot bukti).</d
 Kalau titik hijau berhenti dan waktu tidak berubah, berarti updater/bot berhenti.</footer>
 </div>
 <script>
-const SRC = [
-  "https://raw.githubusercontent.com/rendyyxyz/prsocial-monitor/data/state.json",
-  "https://cdn.jsdelivr.net/gh/rendyyxyz/prsocial-monitor@main/state.json"
-];
-let srcIdx = 0;
+const API = "https://api.github.com/repos/rendyyxyz/prsocial-monitor/contents/state.json?ref=data";
+const RAW = "https://raw.githubusercontent.com/rendyyxyz/prsocial-monitor/data/state.json";
+let lastApi = 0, lastData = null;
+
+function b64utf8(b64){
+  const bin = atob(b64.replace(/\s/g,""));
+  const bytes = new Uint8Array(bin.length);
+  for(let i=0;i<bin.length;i++) bytes[i]=bin.charCodeAt(i);
+  return new TextDecoder("utf-8").decode(bytes);
+}
+async function fetchApi(){
+  const r = await fetch(API, {cache:"no-store", headers:{"Accept":"application/vnd.github+json"}});
+  if(!r.ok) throw new Error(r.status);
+  const j = await r.json();
+  return JSON.parse(b64utf8(j.content));
+}
+async function fetchRaw(){
+  const r = await fetch(RAW + "?t=" + Date.now(), {cache:"no-store"});
+  if(!r.ok) throw new Error(r.status);
+  return await r.json();
+}
 let fails = 0;
 async function tick(){
   try{
-    const r = await fetch(SRC[srcIdx] + "?t=" + Date.now(), {cache:"no-store"});
-    if(!r.ok) throw new Error(r.status);
-    const d = await r.json();
+    const now = Date.now();
+    let d;
+    if (now - lastApi > 60000) {          // API: fresh, no CDN cache (60 req/h limit)
+      try { d = await fetchApi(); lastApi = now; }
+      catch(e) { d = await fetchRaw(); }
+    } else {
+      d = await fetchRaw();
+    }
     fails = 0;
     const pill = document.getElementById("pill");
     let cls = "run", txt = "RUNNING";
@@ -127,7 +148,6 @@ async function tick(){
     document.getElementById("log").textContent = d.log || "";
   }catch(e){
     fails++;
-    if(fails === 2 && srcIdx < SRC.length-1){ srcIdx++; }
     if(fails > 6){
       const pill = document.getElementById("pill");
       pill.className = "pill stuck";
