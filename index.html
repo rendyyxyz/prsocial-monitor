@@ -31,7 +31,7 @@ margin-right:6px;animation:p 1.6s infinite}
 <body><div class="wrap">
 <h1>PR.SOCIAL · Bot Monitor</h1>
 <div class="sub"><span class="live"></span>live · refresh tiap 3 detik ·
-data: <b id="upd">23 Nov 2026 06:04:09 PM</b></div>
+data: <b id="upd">23 Nov 2026 06:10:31 PM</b></div>
 
 <span class="pill run" id="pill">RUNNING</span>
 <span class="pill" id="igbadge" style="display:none;background:rgba(231,76,60,.12);color:#e74c3c;border:1px solid rgba(231,76,60,.4)">IG DI-SKIP</span>
@@ -46,24 +46,12 @@ Jeda: IG 70s, TikTok/X 30s. Like/komentar didukung (upload screenshot bukti).</d
 
 <div class="grid">
   <div class="card"><div class="k">Submitted (sesi)</div><div class="v" id="sub">33</div></div>
-  <div class="card"><div class="k">Follow sukses</div><div class="v" id="fol">45</div></div>
+  <div class="card"><div class="k">Follow sukses</div><div class="v" id="fol">46</div></div>
   <div class="card"><div class="k">Gagal / dilewati</div><div class="v" id="fail">0</div></div>
-  <div class="card"><div class="k">Tugas sekarang</div><div class="v" style="font-size:13px" id="cur">11:03:49 · follow=nobutton @ziosilviosoldi [tiktok]</div></div>
+  <div class="card"><div class="k">Tugas sekarang</div><div class="v" style="font-size:13px" id="cur">11:10:30 · [start] klik (636,779) -&gt; unknown</div></div>
 </div>
 
-<div class="card"><h2>Log</h2><pre id="log">5:38:09 PM   row @3,326 plat=None kind=None state=unknown ok=False (jenis?)
-5:38:11 PM   tidak ada baris lagi
-5:38:11 PM round selesai: 0 tugas
-5:40:03 PM   row @8 plat=None kind=None state=unknown ok=False (jenis?)
-5:40:10 PM   row @528 plat=None kind=None state=unknown ok=False (jenis?)
-5:40:11 PM   tidak ada baris lagi
-5:40:11 PM round selesai: 0 tugas
-5:42:04 PM   row @18 plat=None kind=None state=unknown ok=False (jenis?)
-5:42:11 PM   row @1,318 plat=None kind=None state=unknown ok=False (jenis?)
-5:42:12 PM   tidak ada baris lagi
-5:42:12 PM round selesai: 0 tugas
-5:43:58 PM   tidak ada baris lagi
-5:43:58 PM round selesai: 0 tugas
+<div class="card"><h2>Log</h2><pre id="log">5:43:58 PM round selesai: 0 tugas
 5:45:51 PM   row @tersisa plat=None kind=None state=unknown ok=False (jenis?)
 5:45:57 PM   row @244 plat=None kind=None state=unknown ok=False (jenis?)
 5:45:58 PM   tidak ada baris lagi
@@ -95,7 +83,19 @@ Jeda: IG 70s, TikTok/X 30s. Like/komentar didukung (upload screenshot bukti).</d
 6:02:12 PM === bot start 24.0h (follow+like+comment, highest pay first) ===
 6:02:47 PM   row @$0.0021 plat=tiktok kind=follow state=new ok=True (ok)
 6:03:24 PM   [start] klik (636,754) -&gt; started
-6:03:49 PM   follow=nobutton @ziosilviosoldi [tiktok]</pre></div>
+6:03:49 PM   follow=nobutton @ziosilviosoldi [tiktok]
+6:04:16 PM   row @$0.004 plat=tiktok kind=follow state=new ok=True (ok)
+6:05:30 PM   [start] klik (545,779) -&gt; started
+6:05:59 PM   follow=followed @ziosilviosoldi [tiktok]
+6:06:37 PM   [verify] klik (636,730) -&gt; paid
+6:06:44 PM   verify -&gt; paid
+6:07:57 PM   !! platform tidak bisa verifikasi akun IG -&gt; skip IG 30 menit
+6:08:00 PM   pacing 30s
+6:08:34 PM   tidak ada baris lagi
+6:08:34 PM round selesai: 1 tugas
+6:09:09 PM   row @$0.0021 plat=instagram kind=follow state=new ok=True (ok)
+6:09:48 PM   !! platform tidak bisa verifikasi akun IG -&gt; skip IG 30 menit
+6:10:30 PM   [start] klik (636,779) -&gt; unknown</pre></div>
 
 <footer>Statis di GitHub Pages, data diambil dari <code>state.json</code> di repo ini.
 Kalau titik hijau berhenti dan waktu tidak berubah, berarti updater/bot berhenti.</footer>
@@ -157,6 +157,7 @@ async function tick(){
           + '<span style="flex:1;font-weight:600">'+(r.handle||"?")+'</span>'
           + '<span style="opacity:.7">'+(r.kind||"")+'</span>'
           + '<span style="opacity:.55">'+(r.slots? r.slots+" slot":"")+'</span>'
+          + (d.ig_blocked && p==="instagram" ? '<span style="font-size:11px;padding:2px 7px;border-radius:6px;background:rgba(231,76,60,.18);color:#ff7b6b">skip</span>' : '')
           + '<span style="font-weight:700;color:#f39c12">'+(r.pay||"")+'</span></div>';
       }).join("");
     }
