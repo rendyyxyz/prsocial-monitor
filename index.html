@@ -31,7 +31,7 @@ margin-right:6px;animation:p 1.6s infinite}
 <body><div class="wrap">
 <h1>PR.SOCIAL · Bot Monitor</h1>
 <div class="sub"><span class="live"></span>live · refresh tiap 3 detik ·
-data: <b id="upd">23 Nov 2026 05:24:42</b></div>
+data: <b id="upd">23 Nov 2026 05:27:37</b></div>
 
 <span class="pill idle" id="pill">IDLE (menunggu tugas)</span>
 
@@ -97,11 +97,15 @@ Tugas nyangkut / akun suspend / postingan 404 otomatis dibatalkan.</div></div>
 Kalau titik hijau berhenti dan waktu tidak berubah, berarti updater/bot berhenti.</footer>
 </div>
 <script>
-const RAW = "https://cdn.jsdelivr.net/gh/rendyyxyz/prsocial-monitor@main/state.json";
+const SRC = [
+  "https://raw.githubusercontent.com/rendyyxyz/prsocial-monitor/main/state.json",
+  "https://cdn.jsdelivr.net/gh/rendyyxyz/prsocial-monitor@main/state.json"
+];
+let srcIdx = 0;
 let fails = 0;
 async function tick(){
   try{
-    const r = await fetch(RAW + "?t=" + Date.now(), {cache:"no-store"});
+    const r = await fetch(SRC[srcIdx] + "?t=" + Date.now(), {cache:"no-store"});
     if(!r.ok) throw new Error(r.status);
     const d = await r.json();
     fails = 0;
@@ -121,7 +125,8 @@ async function tick(){
     document.getElementById("log").textContent = d.log || "";
   }catch(e){
     fails++;
-    if(fails > 3){
+    if(fails === 2 && srcIdx < SRC.length-1){ srcIdx++; }
+    if(fails > 6){
       const pill = document.getElementById("pill");
       pill.className = "pill stuck";
       pill.textContent = "DATA TIDAK TERSEDIA";
