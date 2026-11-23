@@ -31,9 +31,9 @@ margin-right:6px;animation:p 1.6s infinite}
 <body><div class="wrap">
 <h1>PR.SOCIAL · Bot Monitor</h1>
 <div class="sub"><span class="live"></span>live · refresh tiap 3 detik ·
-data: <b id="upd">23 Nov 2026 06:24:34 PM</b></div>
+data: <b id="upd">23 Nov 2026 06:32:04 PM</b></div>
 
-<span class="pill idle" id="pill">IDLE (menunggu tugas)</span>
+<span class="pill run" id="pill">RUNNING</span>
 <span class="pill" id="igbadge" style="display:none;background:rgba(231,76,60,.12);color:#e74c3c;border:1px solid rgba(231,76,60,.4)">IG DI-SKIP</span>
 
 <div class="card"><h2>Queue tugas (urut bayaran tertinggi)</h2><div id="queue">memuat...</div></div>
@@ -48,21 +48,10 @@ Jeda: IG 70s, TikTok/X 30s. Like/komentar didukung (upload screenshot bukti).</d
   <div class="card"><div class="k">Submitted (sesi)</div><div class="v" id="sub">33</div></div>
   <div class="card"><div class="k">Follow sukses</div><div class="v" id="fol">46</div></div>
   <div class="card"><div class="k">Gagal / dilewati</div><div class="v" id="fail">0</div></div>
-  <div class="card"><div class="k">Tugas sekarang</div><div class="v" style="font-size:13px" id="cur">6:22:37 PM · follow=nobutton @$0.0021 [instagram]</div></div>
+  <div class="card"><div class="k">Tugas sekarang</div><div class="v" style="font-size:13px" id="cur">6:31:43 PM · row @$0.004 plat=x kind=follow state=new ok=True (ok)</div></div>
 </div>
 
-<div class="card"><h2>Log</h2><pre id="log">5:53:32 PM   tidak ada baris lagi
-5:53:32 PM round selesai: 0 tugas
-5:55:29 PM   row @2 plat=None kind=None state=unknown ok=False (jenis?)
-5:55:30 PM   tidak ada baris lagi
-5:55:30 PM round selesai: 0 tugas
-5:57:11 PM   [t] klik (636,754) -&gt; submitted
-5:58:49 PM === bot start 24.0h (follow+like+comment, highest pay first) ===
-5:59:20 PM   row @$0.0036 plat=x kind=follow state=new ok=True (ok)
-5:59:54 PM   [start] klik (636,754) -&gt; started
-6:00:24 PM   follow=followed @fujiantaiw [x]
-6:00:59 PM   [verify] klik (636,730) -&gt; unknown
-6:01:06 PM   verify -&gt; unknown
+<div class="card"><h2>Log</h2><pre id="log">6:01:06 PM   verify -&gt; unknown
 6:01:11 PM   tidak ada baris lagi
 6:01:11 PM round selesai: 0 tugas
 6:02:12 PM === bot start 24.0h (follow+like+comment, highest pay first) ===
@@ -95,7 +84,18 @@ Jeda: IG 70s, TikTok/X 30s. Like/komentar didukung (upload screenshot bukti).</d
 6:22:21 PM   IG normal lagi -&gt; tugas IG diaktifkan
 6:22:37 PM   follow=nobutton @$0.0021 [instagram]
 6:22:42 PM   tidak ada baris lagi
-6:22:42 PM round selesai: 0 tugas</pre></div>
+6:22:42 PM round selesai: 0 tugas
+6:24:41 PM   row @$0.0021 plat=instagram kind=follow state=new ok=True (ok)
+6:25:48 PM   [start] klik (636,779) -&gt; started
+6:26:10 PM   follow=nobutton @$0.0021 [instagram]
+6:26:15 PM   tidak ada baris lagi
+6:26:15 PM round selesai: 0 tugas
+6:28:15 PM   row @$0.0021 plat=instagram kind=follow state=new ok=True (ok)
+6:29:23 PM   [start] klik (518,768) -&gt; gone
+6:30:36 PM   !! platform tidak bisa verifikasi akun IG -&gt; skip IG 30 menit
+6:31:11 PM   [start] klik (636,779) -&gt; started
+6:31:33 PM   follow=nobutton @elcrackapuest10 [instagram]
+6:31:43 PM   row @$0.004 plat=x kind=follow state=new ok=True (ok)</pre></div>
 
 <footer>Statis di GitHub Pages, data diambil dari <code>state.json</code> di repo ini.
 Kalau titik hijau berhenti dan waktu tidak berubah, berarti updater/bot berhenti.</footer>
@@ -145,7 +145,11 @@ async function tick(){
     document.getElementById("note").textContent = d.note || "";
     const q = d.queue || [];
     const qEl = document.getElementById("queue");
-    if(!q.length){ qEl.innerHTML = '<div style="opacity:.6">belum ada data queue</div>'; }
+    if(!q.length){
+      qEl.innerHTML = '<div style="opacity:.65">' + (d.ig_blocked
+        ? 'Tidak ada tugas non-Instagram saat ini. Tugas IG disembunyikan karena akun IG sedang di-skip.'
+        : 'belum ada data queue') + '</div>';
+    }
     else {
       const icon = {instagram:"IG", tiktok:"TT", x:"X"};
       const color = {instagram:"#e1306c", tiktok:"#25f4ee", x:"#e8e8e8"};
