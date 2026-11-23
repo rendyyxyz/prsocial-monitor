@@ -31,9 +31,9 @@ margin-right:6px;animation:p 1.6s infinite}
 <body><div class="wrap">
 <h1>PR.SOCIAL · Bot Monitor</h1>
 <div class="sub"><span class="live"></span>live · refresh tiap 3 detik ·
-data: <b id="upd">23 Nov 2026 06:14:24 PM</b></div>
+data: <b id="upd">23 Nov 2026 06:24:34 PM</b></div>
 
-<span class="pill run" id="pill">RUNNING</span>
+<span class="pill idle" id="pill">IDLE (menunggu tugas)</span>
 <span class="pill" id="igbadge" style="display:none;background:rgba(231,76,60,.12);color:#e74c3c;border:1px solid rgba(231,76,60,.4)">IG DI-SKIP</span>
 
 <div class="card"><h2>Queue tugas (urut bayaran tertinggi)</h2><div id="queue">memuat...</div></div>
@@ -48,22 +48,10 @@ Jeda: IG 70s, TikTok/X 30s. Like/komentar didukung (upload screenshot bukti).</d
   <div class="card"><div class="k">Submitted (sesi)</div><div class="v" id="sub">33</div></div>
   <div class="card"><div class="k">Follow sukses</div><div class="v" id="fol">46</div></div>
   <div class="card"><div class="k">Gagal / dilewati</div><div class="v" id="fail">0</div></div>
-  <div class="card"><div class="k">Tugas sekarang</div><div class="v" style="font-size:13px" id="cur">11:13:46 · [start] gagal</div></div>
+  <div class="card"><div class="k">Tugas sekarang</div><div class="v" style="font-size:13px" id="cur">6:22:37 PM · follow=nobutton @$0.0021 [instagram]</div></div>
 </div>
 
-<div class="card"><h2>Log</h2><pre id="log">5:45:58 PM   tidak ada baris lagi
-5:45:58 PM round selesai: 0 tugas
-5:47:45 PM   tidak ada baris lagi
-5:47:45 PM round selesai: 0 tugas
-5:49:31 PM   tidak ada baris lagi
-5:49:31 PM round selesai: 0 tugas
-5:51:23 PM   row @22 plat=None kind=None state=unknown ok=False (jenis?)
-5:51:30 PM   row @822 plat=None kind=None state=unknown ok=False (jenis?)
-5:51:31 PM   tidak ada baris lagi
-5:51:31 PM round selesai: 0 tugas
-5:53:24 PM   row @21 plat=None kind=None state=unknown ok=False (jenis?)
-5:53:31 PM   row @821 plat=None kind=None state=unknown ok=False (jenis?)
-5:53:32 PM   tidak ada baris lagi
+<div class="card"><h2>Log</h2><pre id="log">5:53:32 PM   tidak ada baris lagi
 5:53:32 PM round selesai: 0 tugas
 5:55:29 PM   row @2 plat=None kind=None state=unknown ok=False (jenis?)
 5:55:30 PM   tidak ada baris lagi
@@ -95,7 +83,19 @@ Jeda: IG 70s, TikTok/X 30s. Like/komentar didukung (upload screenshot bukti).</d
 6:10:30 PM   [start] klik (636,779) -&gt; unknown
 6:12:10 PM   [start] gagal
 6:13:46 PM   [start] gagal
-6:14:11 PM === bot start 24.0h (follow+like+comment, highest pay first) ===</pre></div>
+6:14:11 PM === bot start 24.0h (follow+like+comment, highest pay first) ===
+6:14:46 PM   row @$0.0024 plat=x kind=like state=new ok=True (ok)
+6:16:38 PM   [start] gagal
+6:18:31 PM === bot start 24.0h (follow+like+comment, highest pay first) ===
+6:18:51 PM   tutup dialog file yang nyangkut
+6:19:03 PM   tidak ada baris lagi
+6:19:03 PM round selesai: 0 tugas
+6:21:04 PM   row @$0.0021 plat=instagram kind=follow state=new ok=True (ok)
+6:22:15 PM   [start] klik (636,779) -&gt; started
+6:22:21 PM   IG normal lagi -&gt; tugas IG diaktifkan
+6:22:37 PM   follow=nobutton @$0.0021 [instagram]
+6:22:42 PM   tidak ada baris lagi
+6:22:42 PM round selesai: 0 tugas</pre></div>
 
 <footer>Statis di GitHub Pages, data diambil dari <code>state.json</code> di repo ini.
 Kalau titik hijau berhenti dan waktu tidak berubah, berarti updater/bot berhenti.</footer>
