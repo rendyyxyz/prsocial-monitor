@@ -31,9 +31,9 @@ margin-right:6px;animation:p 1.6s infinite}
 <body><div class="wrap">
 <h1>PR.SOCIAL · Bot Monitor</h1>
 <div class="sub"><span class="live"></span>live · refresh tiap 3 detik ·
-data: <b id="upd">24 Nov 2026 05:08:08 PM</b></div>
+data: <b id="upd">24 Nov 2026 05:18:19 PM</b></div>
 
-<span class="pill idle" id="pill">IDLE (menunggu tugas)</span>
+<span class="pill run" id="pill">RUNNING</span>
 <span class="pill" id="igbadge" style="display:none;background:rgba(231,76,60,.12);color:#e74c3c;border:1px solid rgba(231,76,60,.4)">IG DI-SKIP</span>
 
 <div class="card"><h2>Queue tugas (urut bayaran tertinggi)</h2><div id="queue">memuat...</div></div>
@@ -48,21 +48,10 @@ Jeda: IG 70s, TikTok/X 30s. Like/komentar didukung (upload screenshot bukti).</d
   <div class="card"><div class="k">Submitted (sesi)</div><div class="v" id="sub">33</div></div>
   <div class="card"><div class="k">Follow sukses</div><div class="v" id="fol">68</div></div>
   <div class="card"><div class="k">Gagal / dilewati</div><div class="v" id="fail">0</div></div>
-  <div class="card"><div class="k">Tugas sekarang</div><div class="v" style="font-size:13px" id="cur">5:07:01 PM · follow=nobutton @$0.0021 [tiktok]</div></div>
+  <div class="card"><div class="k">Tugas sekarang</div><div class="v" style="font-size:13px" id="cur">5:16:55 PM · [start] klik (636,779) -&gt; started</div></div>
 </div>
 
-<div class="card"><h2>Log</h2><pre id="log">4:43:46 PM   skip @$0.0021 (IG diblokir)
-4:43:47 PM   skip @2,955 (IG diblokir)
-4:43:48 PM   tidak ada baris lagi
-4:43:48 PM round selesai: 0 tugas
-4:45:42 PM   skip @$0.0026 (IG diblokir)
-4:45:43 PM   skip @$0.0021 (IG diblokir)
-4:45:44 PM   skip @2,764 (IG diblokir)
-4:45:46 PM   tidak ada baris lagi
-4:45:46 PM round selesai: 0 tugas
-4:47:46 PM   row @$0.0026 plat=instagram kind=follow state=new ok=True (ok)
-4:48:19 PM   !! platform tidak bisa verifikasi akun IG -&gt; skip IG 30 menit
-4:48:53 PM   [start] klik (636,779) -&gt; unknown
+<div class="card"><h2>Log</h2><pre id="log">4:48:53 PM   [start] klik (636,779) -&gt; unknown
 4:50:19 PM   [start] gagal
 4:51:41 PM   [start] gagal
 4:53:02 PM   [start] gagal
@@ -95,7 +84,18 @@ Jeda: IG 70s, TikTok/X 30s. Like/komentar didukung (upload screenshot bukti).</d
 5:06:37 PM   [start] klik (545,779) -&gt; started
 5:07:01 PM   follow=nobutton @$0.0021 [tiktok]
 5:07:05 PM   tidak ada baris lagi
-5:07:05 PM round selesai: 0 tugas</pre></div>
+5:07:05 PM round selesai: 0 tugas
+5:08:58 PM   skip @$0.0026 (IG diblokir)
+5:09:06 PM   row @$0.0021 plat=tiktok kind=follow state=new ok=True (ok)
+5:10:11 PM   [start] klik (545,779) -&gt; started
+5:10:34 PM   follow=nobutton @$0.0021 [tiktok]
+5:10:39 PM   tidak ada baris lagi
+5:10:39 PM round selesai: 0 tugas
+5:12:38 PM   row @$0.004 plat=x kind=follow state=new ok=True (ok)
+5:13:44 PM   [start] klik (526,779) -&gt; gone
+5:14:58 PM   [start] klik (636,730) -&gt; gone
+5:16:17 PM   !! platform tidak bisa verifikasi akun IG -&gt; skip IG 30 menit
+5:16:55 PM   [start] klik (636,779) -&gt; started</pre></div>
 
 <footer>Statis di GitHub Pages, data diambil dari <code>state.json</code> di repo ini.
 Kalau titik hijau berhenti dan waktu tidak berubah, berarti updater/bot berhenti.</footer>
