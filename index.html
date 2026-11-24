@@ -31,9 +31,9 @@ margin-right:6px;animation:p 1.6s infinite}
 <body><div class="wrap">
 <h1>PR.SOCIAL · Bot Monitor</h1>
 <div class="sub"><span class="live"></span>live · refresh tiap 3 detik ·
-data: <b id="upd">24 Nov 2026 06:19:23 PM</b></div>
+data: <b id="upd">24 Nov 2026 06:29:36 PM</b></div>
 
-<span class="pill idle" id="pill">IDLE (menunggu tugas)</span>
+<span class="pill run" id="pill">RUNNING</span>
 <span class="pill" id="igbadge" style="display:none;background:rgba(231,76,60,.12);color:#e74c3c;border:1px solid rgba(231,76,60,.4)">IG DI-SKIP</span>
 
 <div class="card"><h2>Queue tugas (urut bayaran tertinggi)</h2><div id="queue">memuat...</div></div>
@@ -48,33 +48,10 @@ Jeda: IG 70s, TikTok/X 30s. Like/komentar didukung (upload screenshot bukti).</d
   <div class="card"><div class="k">Submitted (sesi)</div><div class="v" id="sub">33</div></div>
   <div class="card"><div class="k">Follow sukses</div><div class="v" id="fol">70</div></div>
   <div class="card"><div class="k">Gagal / dilewati</div><div class="v" id="fail">0</div></div>
-  <div class="card"><div class="k">Tugas sekarang</div><div class="v" style="font-size:13px" id="cur">6:19:18 PM · skip @$0.0019 (IG diblokir)</div></div>
+  <div class="card"><div class="k">Tugas sekarang</div><div class="v" style="font-size:13px" id="cur">6:29:36 PM · skip @$0.0022 (IG diblokir)</div></div>
 </div>
 
-<div class="card"><h2>Log</h2><pre id="log">6:03:15 PM   row @$0.002 plat=instagram kind=follow state=new ok=True (ok)
-6:03:15 PM   IG masih diblokir -&gt; skip
-6:03:16 PM   tidak ada baris lagi
-6:03:16 PM round selesai: 0 tugas
-6:05:13 PM   skip @$0.0026 (IG diblokir)
-6:05:15 PM   skip @$0.0021 (IG diblokir)
-6:05:16 PM   skip @1,723 (IG diblokir)
-6:05:18 PM   skip @$0.002 (IG diblokir)
-6:05:19 PM   tidak ada baris lagi
-6:05:19 PM round selesai: 0 tugas
-6:07:20 PM   row @$0.0026 plat=instagram kind=follow state=new ok=True (ok)
-6:07:53 PM   !! platform tidak bisa verifikasi akun IG -&gt; skip IG 30 menit
-6:08:27 PM   [start] klik (636,779) -&gt; unknown
-6:09:54 PM   [start] gagal
-6:11:18 PM   [start] gagal
-6:12:42 PM   [start] gagal
-6:12:44 PM   !! SKIP SEMUA TUGAS INSTAGRAM 30 menit (IG gagal start berulang)
-6:12:45 PM   skip @$0.0021 (IG diblokir)
-6:12:47 PM   skip @2,659 (IG diblokir)
-6:12:48 PM   skip @$0.002 (IG diblokir)
-6:12:56 PM   row @$0.0019 plat=instagram kind=follow state=new ok=True (ok)
-6:12:56 PM   IG masih diblokir -&gt; skip
-6:12:58 PM   tidak ada baris lagi
-6:12:58 PM round selesai: 0 tugas
+<div class="card"><h2>Log</h2><pre id="log">6:12:58 PM round selesai: 0 tugas
 6:14:55 PM   skip @$0.0026 (IG diblokir)
 6:14:56 PM   skip @$0.0021 (IG diblokir)
 6:14:58 PM   skip @10,212 (IG diblokir)
@@ -95,7 +72,30 @@ Jeda: IG 70s, TikTok/X 30s. Like/komentar didukung (upload screenshot bukti).</d
 6:19:17 PM   skip @2,487 (IG diblokir)
 6:19:18 PM   skip @$0.0019 (IG diblokir)
 6:19:20 PM   tidak ada baris lagi
-6:19:20 PM round selesai: 0 tugas</pre></div>
+6:19:20 PM round selesai: 0 tugas
+6:21:14 PM   skip @$0.0026 (IG diblokir)
+6:21:16 PM   skip @9,690 (IG diblokir)
+6:21:17 PM   skip @$0.0021 (IG diblokir)
+6:21:18 PM   skip @$0.0019 (IG diblokir)
+6:21:19 PM   tidak ada baris lagi
+6:21:19 PM round selesai: 0 tugas
+6:23:14 PM   skip @$0.0026 (IG diblokir)
+6:23:15 PM   skip @$0.0021 (IG diblokir)
+6:23:16 PM   skip @2,411 (IG diblokir)
+6:23:18 PM   skip @$0.0019 (IG diblokir)
+6:23:19 PM   tidak ada baris lagi
+6:23:19 PM round selesai: 0 tugas
+6:25:21 PM   skip @$0.0026 (IG diblokir)
+6:25:23 PM   skip @$0.0021 (IG diblokir)
+6:25:25 PM   skip @2,383 (IG diblokir)
+6:25:26 PM   skip @$0.0019 (IG diblokir)
+6:25:28 PM   tidak ada baris lagi
+6:25:28 PM round selesai: 0 tugas
+6:27:37 PM   row @$0.004 plat=None kind=comment state=new ok=True (ok)
+6:27:39 PM   tidak ada baris lagi
+6:27:39 PM round selesai: 0 tugas
+6:29:34 PM   skip @$0.0026 (IG diblokir)
+6:29:36 PM   skip @$0.0022 (IG diblokir)</pre></div>
 
 <footer>Statis di GitHub Pages, data diambil dari <code>state.json</code> di repo ini.
 Kalau titik hijau berhenti dan waktu tidak berubah, berarti updater/bot berhenti.</footer>
